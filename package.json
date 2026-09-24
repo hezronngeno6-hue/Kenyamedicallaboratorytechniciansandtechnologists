@@ -6,9 +6,14 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "vercel dev",
+    "preview": "node scripts/local-server.js",
+    "qr": "node scripts/generate-qr.js",
     "deploy": "vercel deploy --prod"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
   }
 }

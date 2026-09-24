@@ -11,6 +11,20 @@
   },
   "members": [
     {
+      "regNumber": "KMLTT/MLT/00051",
+      "name": "Owuor, Michael Ouma",
+      "cadre": "Medical Laboratory Technologist",
+      "designation": "Laboratory Superintendent",
+      "status": "Active",
+      "registeredOn": "2009-04-06",
+      "validFrom": "2026-01-01",
+      "validUntil": "2028-12-31",
+      "county": "Nairobi",
+      "facility": "Sample National Referral Laboratory, Nairobi",
+      "qualification": "MSc Medical Microbiology",
+      "cpdPoints": 58
+    },
+    {
       "regNumber": "KMLTT/MLT/00118",
       "name": "Achieng, Mary Wanjiku",
       "cadre": "Medical Laboratory Technologist",

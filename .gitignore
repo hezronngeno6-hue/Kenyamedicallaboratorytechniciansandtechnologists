@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Generated QR codes
+output/
+
 # Vercel
 .vercel
 .env

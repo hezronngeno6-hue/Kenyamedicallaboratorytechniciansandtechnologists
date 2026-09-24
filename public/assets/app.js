@@ -171,7 +171,14 @@
 
       const rows = [
         ['Registration number', '<span class="mono">' + escapeHtml(m.regNumber) + '</span>'],
-        ['Cadre', escapeHtml(m.cadre)],
+        ['Cadre', escapeHtml(m.cadre)]
+      ];
+
+      if (m.designation) {
+        rows.push(['Designation', '<strong>' + escapeHtml(m.designation) + '</strong>']);
+      }
+
+      rows.push(
         ['County', escapeHtml(m.county || '—')],
         ['Facility', escapeHtml(m.facility || '—')],
         ['Qualification', escapeHtml(m.qualification || '—')],
@@ -179,7 +186,7 @@
         ['Current licence from', escapeHtml(formatDate(m.validFrom))],
         ['Current licence until', escapeHtml(formatDate(m.validUntil))],
         ['CPD points (cycle)', m.cpdPoints == null ? '—' : escapeHtml(m.cpdPoints)]
-      ];
+      );
 
       output.innerHTML =
         '<div class="result-card">' +
