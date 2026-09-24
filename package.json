@@ -1,0 +1,14 @@
+{
+  "name": "kenya-medical-laboratory-technicians-and-technologists",
+  "version": "1.0.0",
+  "description": "Public website and practitioner verification API for Kenya Medical Laboratory Technicians and Technologists.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

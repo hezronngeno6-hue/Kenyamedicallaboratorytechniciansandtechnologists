@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-KE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify a practitioner — Kenya Medical Laboratory Technicians and Technologists</title>
+<meta name="description" content="Check whether a medical laboratory technologist, technician or assistant holds a current registration and licence.">
+<meta name="theme-color" content="#06263f">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/">
+      <img class="brand__mark" src="/assets/favicon.svg" alt="" width="42" height="42">
+      <span class="brand__text">
+        <span class="brand__name">Kenya Medical Laboratory Technicians &amp; Technologists</span>
+        <span class="brand__sub">KMLTT</span>
+      </span>
+    </a>
+    <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" data-nav aria-label="Main navigation">
+      <a class="nav__link" href="/">Home</a>
+      <a class="nav__link" href="/verify" aria-current="page">Verify</a>
+      <a class="nav__link" href="/members">Register</a>
+      <a class="nav__link" href="/#services">Services</a>
+      <a class="nav__link" href="/#about">About</a>
+      <a class="nav__link" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap" style="max-width:840px">
+      <span class="eyebrow">Registry lookup</span>
+      <h1>Verify a practitioner</h1>
+      <p class="lede">
+        Enter a registration number exactly as it appears on a certificate or licence card.
+        Punctuation and spacing are ignored.
+      </p>
+
+      <div class="alert alert--warn mt-24" role="note">
+        <div>
+          <p class="alert__title">Demonstration data</p>
+          <p>
+            This deployment is running on sample records. Confirmed results here are placeholders
+            and must not be relied on for employment, regulatory or clinical decisions.
+          </p>
+        </div>
+      </div>
+
+      <form class="card mt-32" data-verify-form novalidate style="margin-top:28px">
+        <div class="field">
+          <label for="reg">Registration number</label>
+          <div class="input-group">
+            <input class="input" id="reg" name="reg" type="text" inputmode="text"
+                   placeholder="KMLTT/MLT/00118" autocomplete="off" required
+                   aria-describedby="reg-hint">
+            <button class="btn btn--primary" type="submit">Verify registration</button>
+          </div>
+          <p id="reg-hint" class="cell-muted" style="margin:8px 0 0">
+            Example numbers: <span class="mono">KMLTT/MLT/00118</span>,
+            <span class="mono">KMLTT/MLT/00488</span> (expired),
+            <span class="mono">KMLTT/MLT/00601</span> (suspended).
+          </p>
+        </div>
+      </form>
+
+      <div class="mt-32" data-verify-output aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-note" style="margin-top:0;border-top:none;padding-top:0">
+      <span>&copy; <span data-year>2026</span> Kenya Medical Laboratory Technicians and Technologists.</span>
+      <span><strong>Demonstration build.</strong> Sample data only — not an official register.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
