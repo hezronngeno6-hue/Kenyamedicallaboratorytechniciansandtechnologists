@@ -16,9 +16,13 @@ functions that read the registry dataset.
 
 | | |
 |---|---|
-| Site | `https://<project-name>.vercel.app` |
-| Verify | `https://<project-name>.vercel.app/verify` |
-| Register | `https://<project-name>.vercel.app/members` |
+| Site | https://kenyamedicallab.vercel.app |
+| Verify | https://kenyamedicallab.vercel.app/verify |
+| Register search | https://kenyamedicallab.vercel.app/members |
+| Stats API | https://kenyamedicallab.vercel.app/api/stats |
+
+Deployed on Vercel as project `kenyamedicallab` (team `hezii`), connected to this
+GitHub repository, so every push to `main` deploys to production automatically.
 
 ---
 
@@ -44,6 +48,11 @@ functions that read the registry dataset.
 │   ├── members.html         Register search
 │   ├── robots.txt
 │   └── verify.html          Single verification
+├── scripts/
+│   ├── generate-qr.js       Verification QR generator (npm run qr)
+│   └── local-server.js      Offline preview server (npm run preview)
+├── output/                  Generated artefacts (gitignored)
+│   └── qr/                  QR PNG/SVG files + gallery
 ├── package.json
 └── vercel.json
 ```
@@ -111,6 +120,23 @@ Returns `404` with `{"found": false}` when nothing matches, and `400` when `reg`
 
 ---
 
+## QR codes
+
+Practitioner QR codes encode a plain verification URL, so any phone camera opens the
+registry record. There is no proprietary payload format and no app to install.
+
+```bash
+npm run qr -- KMLTT/MLT/00051                          # one practitioner
+npm run qr -- --all                                    # the whole register
+npm run qr -- KMLTT/MLT/00051 --url http://localhost:4321
+```
+
+Output lands in `output/qr/` (gitignored): a 1024px PNG for print, a scalable SVG,
+and an `index.html` gallery of everything generated. Codes use error-correction
+level **H** (30%) so they stay readable when printed small or creased.
+
+---
+
 ## Local development
 
 Requires Node.js 20+ and the Vercel CLI.
@@ -126,14 +152,16 @@ verify and register pages work end to end.
 ## Deployment
 
 ```bash
-vercel login
-vercel link               # create/link the Vercel project
-vercel deploy --prod      # or: npm run deploy
+npm run deploy            # vercel deploy --prod
 ```
 
-Once the GitHub repository is connected in the Vercel dashboard, every push to the
-default branch deploys automatically. `vercel.json` sets `public/` as the static
-output directory and bundles `data/` into the API functions.
+The Vercel project is already linked locally (`.vercel/project.json`) and connected
+to this GitHub repository, so pushing to `main` deploys automatically.
+
+`vercel.json` sets `public/` as the static output directory and bundles `data/` into
+the API functions via `functions.includeFiles`. Without that setting the functions
+fail at runtime with ENOENT on `data/members.json`, because Vercel only traces a
+function's own imports by default.
 
 ---
 
